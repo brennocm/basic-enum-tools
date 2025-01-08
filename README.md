@@ -7,64 +7,62 @@ Script voltado para automatizar a instalação e configuração de ferramentas d
 
 ### Funcionalidades
 
-- Atualização automática do sistema e instalação de dependências essenciais;
+- Atualização do sistema e instalação de dependências essenciais;
 - Instalação do Python e Golang;
-- Instalação e configuração das seguintes ferramentas:
+- Instalação e configuração de ferramentas.
 
 ##### Utilitários Gerais (Instalados via `apt`)
-*   `unzip`: Para descompactar arquivos ZIP.
-*   `tar`: Para manipular arquivos TAR (compactação e descompactação).
-*   `bzip2`: Para manipular arquivos BZIP2 (compactação e descompactação).
-*   `vim`: Editor de texto avançado.
-*   `curl`: Ferramenta para transferência de dados via URL.
-*   `git`: Sistema de controle de versões distribuído.
-*   `net-tools`: Conjunto de ferramentas para rede (inclui `netstat`).
-*   `python3`: Linguagem de programação Python versão 3.
-*   `python3-pip`: Gerenciador de pacotes para Python 3.
-*   `python3-venv`: Ferramenta para criar ambientes virtuais Python.
+*   `unzip`: Descompactação de arquivos ZIP;
+*   `tar`: Manipulação de arquivos TAR (compactação e descompactação);
+*   `bzip2`: Manipulação de arquivos BZIP2 (compactação e descompactação);
+*   `vim`: Editor de texto avançado;
+*   `curl`: Ferramenta para transferência de dados via URL;
+*   `git`: Sistema de controle de versões distribuído;
+*   `net-tools`: Conjunto de ferramentas para rede (inclui `netstat`);
+*   `python3-pip`: Gerenciador de pacotes para Python 3;
+*   `python3-venv`: Ferramenta para criar ambientes virtuais Python;
 *   `jq`: Processador de JSON via linha de comando.
 
 #### Ferramentas de Enumeração de Subdomínios (Instaladas via `go install`)
-*   `assetfinder`: Para encontrar subdomínios relacionados a um domínio alvo.
-*   `subfinder`: Outra ferramenta para enumeração de subdomínios, focada em diferentes fontes de dados.
-*   `anew`: Para filtrar e manter listas de texto sem duplicatas.
-*   `amass`: Ferramenta para coleta de inteligência de código aberto, incluindo subdomínios.
-*   `findomain`: Ferramenta rápida para encontrar subdomínios.
+*   `assetfinder`: Encontra subdomínios relacionados a um domínio alvo;
+*   `subfinder`: Enumera subdomínios, focada em diferentes fontes de dados;
+*   `anew`: Filtra e mantém listas de texto sem duplicatas;
+*   `amass`: Ferramenta para coleta de inteligência de código aberto, incluindo subdomínios;
+*   `findomain`: Ferramenta para encontrar subdomínios.
 
 #### Ferramentas de Resolução de Subdomínios (Instaladas via `go install`)
-*   `httpx`: Ferramenta multiuso para sondar servidores web e identificar status codes.
-*   `httprobe`: Para verificar se uma lista de hosts responde a HTTP(S).
-*   `gowitness`: Ferramenta para tirar screenshots de sites e armazená-los.
-*   `dnsx`: Ferramenta flexível e rápida para realizar consultas DNS.
+*   `httpx`: Ferramenta multiuso para sondar servidores web e identificar status code;
+*   `httprobe`: Verifica se uma lista de hosts responde ao HTTP(S) desejado;
+*   `gowitness`: Ferramenta para tirar screenshots de sites e armazená-los;
+*   `dnsx`: Ferramenta flexível para realizar consultas DNS.
 
 #### Ferramentas de Crawler (Instaladas via `go install`)
-*   `waybackurls`: Para obter URLs do Wayback Machine para um domínio.
-*   `gau`: Ferramenta para obter URLs de várias fontes de arquivos de indexadores web.
+*   `waybackurls`: Obtém URLs do Wayback Machine para um domínio;
+*   `gau`: Obtém URLs de várias fontes de arquivos de indexadores web.
 
 #### Ferramenta de Enumeração de Pontos de Entrada (Instalada via `go install`)
-*   `gf`: Para gerar padrões customizados para `grep` e outros filtros.
+*   `gf`: Gera padrões customizados para `grep` e outros filtros.
 
 #### Ferramentas de Enumeração de JavaScript (Instaladas via `go install`)
-*   `subjs`: Para encontrar arquivos JavaScript em uma lista de URLs
-*   `anti-burl`: Para evitar o carregamento de links externos.
+*   `subjs`: Encontra arquivos JavaScript em uma lista de URLs
+*   `anti-burl`: FIltra perante resposta 200 HTTP.
 
 #### Ferramentas de Enumeração de Diretórios e Fuzzing (Instaladas via `go install`)
-*   `gobuster`: Ferramenta para realizar brute-force em diretórios e arquivos.
-*   `ffuf`: Ferramenta rápida para fuzzing web (encontrar arquivos e diretórios).
+*   `gobuster`: Ferramenta para realizar brute-force em diretórios e arquivos;
+*   `ffuf`: Ferramenta para fuzzing web (encontrar arquivos e diretórios).
 
 #### Ferramenta de Automação de Enumeração (Instalada via `go install`)
 *   `nuclei`: Framework para executar verificações automatizadas de vulnerabilidades.
 
 #### Ferramentas Adicionais (Instaladas via `go install`)
-*   `Goop`: Ferramenta para buscar vulnerabilidades em projetos Golang.
-*   `meg`: Para extrair informações e dados de textos.
-*   `freq`: Para identificar frequências de strings e caracteres.
-*    `sdlookup`: Ferramenta para extrair informações de subdomínios.
-*   `sigurlfind3r`: Para extrair URLs de arquivos e texto
-*   `airixss`: Para identificar parâmetros XSS vulneráveis.
-*   `nilo`: Para testar vulnerabilidades NLO.
-
-- Atualização automática de templates (ex.: Nuclei).
+*   `Goop`: Busca de CVEs;
+*   `meg`: Extrai informações e dados de textos;
+*   `freq`: identifica frequências de strings e caracteres;
+*    `sdlookup`: Extrai informações de subdomínios;
+*   `sigurlfind3r`: Extrai URLs de arquivos e texto;
+*   `airixss`: Identifica parâmetros XSS vulneráveis;
+*   `nilo`: FIltra perante resposta 200 HTTP;
+* Atualização automática de templates (ex.: Nuclei);
 
 ### Como usar?
 
