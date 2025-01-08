@@ -1,100 +1,100 @@
 <div align="center">
-    <img src="images/reconnaissance .png" alt="reconnaissance" width="180px">
+    <img src="images/reconnaissance .png" alt="reconnaissance" width="220px">
     <h2 align="center"> Basic Enum Tools</h2>
-  </div>
+</div>
 
-Script voltado para automatizar a instalação e configuração de ferramentas de enumeração de subdomínios, resolução de endpoints, crawler de URLs, fuzzing, e automação de testes de segurança.
+Script designed to automate the installation and configuration of tools for subdomain enumeration, endpoint resolution, URL crawling, fuzzing, and security testing automation.
 
-### Funcionalidades
+### Features
 
-- Atualização do sistema e instalação de dependências essenciais;
-- Instalação do Python e Golang;
-- Instalação e configuração de ferramentas.
+- System update and installation of essential dependencies;
+- Installation of Python and Golang;
+- Installation and configuration of tools.
 
-##### Utilitários Gerais (Instalados via `apt`)
-*   `unzip`: Descompactação de arquivos ZIP;
-*   `tar`: Manipulação de arquivos TAR (compactação e descompactação);
-*   `bzip2`: Manipulação de arquivos BZIP2 (compactação e descompactação);
-*   `vim`: Editor de texto avançado;
-*   `curl`: Ferramenta para transferência de dados via URL;
-*   `git`: Sistema de controle de versões distribuído;
-*   `net-tools`: Conjunto de ferramentas para rede (inclui `netstat`);
-*   `python3-pip`: Gerenciador de pacotes para Python 3;
-*   `python3-venv`: Ferramenta para criar ambientes virtuais Python;
-*   `jq`: Processador de JSON via linha de comando.
+##### General Utilities (Installed via `apt`)
+*   `unzip`: ZIP file extraction;
+*   `tar`: TAR file manipulation (compression and extraction);
+*   `bzip2`: BZIP2 file manipulation (compression and extraction);
+*   `vim`: Advanced text editor;
+*   `curl`: Data transfer tool via URL;
+*   `git`: Distributed version control system;
+*   `net-tools`: Network tools suite (includes `netstat`);
+*   `python3-pip`: Package manager for Python3;
+*   `python3-venv`: Tool to create Python virtual environments;
+*   `jq`: Command-line JSON processor.
 
-#### Ferramentas de Enumeração de Subdomínios (Instaladas via `go install`)
-*   `assetfinder`: Encontra subdomínios relacionados a um domínio alvo;
-*   `subfinder`: Enumera subdomínios, focada em diferentes fontes de dados;
-*   `anew`: Filtra e mantém listas de texto sem duplicatas;
-*   `amass`: Ferramenta para coleta de inteligência de código aberto, incluindo subdomínios;
-*   `findomain`: Ferramenta para encontrar subdomínios.
+#### Subdomain Enumeration Tools (Installed via `go install`)
+*   `assetfinder`: Finds subdomains related to a target domain;
+*   `subfinder`: Enumerates subdomains, focused on different data sources;
+*   `anew`: Filters and maintains text lists without duplicates;
+*   `amass`: Tool for open-source intelligence gathering, including subdomains;
+*   `findomain`: Tool to find subdomains.
 
-#### Ferramentas de Resolução de Subdomínios (Instaladas via `go install`)
-*   `httpx`: Ferramenta multiuso para sondar servidores web e identificar status code;
-*   `httprobe`: Verifica se uma lista de hosts responde ao HTTP(S) desejado;
-*   `gowitness`: Ferramenta para tirar screenshots de sites e armazená-los;
-*   `dnsx`: Ferramenta flexível para realizar consultas DNS.
+#### Subdomain Resolution Tools (Installed via `go install`)
+*   `httpx`: Multi-purpose tool for probing web servers and identifying status codes;
+*   `httprobe`: Checks if a list of hosts responds to the desired HTTP(S);
+*   `gowitness`: Tool for taking screenshots of websites and storing them;
+*   `dnsx`: Flexible tool for performing DNS queries.
 
-#### Ferramentas de Crawler (Instaladas via `go install`)
-*   `waybackurls`: Obtém URLs do Wayback Machine para um domínio;
-*   `gau`: Obtém URLs de várias fontes de arquivos de indexadores web.
+#### Crawler Tools (Installed via `go install`)
+*   `waybackurls`: Fetches URLs from the Wayback Machine for a domain;
+*   `gau`: Fetches URLs from various sources of web indexers.
 
-#### Ferramenta de Enumeração de Pontos de Entrada (Instalada via `go install`)
-*   `gf`: Gera padrões customizados para `grep` e outros filtros.
+#### Entry Point Enumeration Tool (Installed via `go install`)
+*   `gf`: Generates custom patterns for `grep` and other filters.
 
-#### Ferramentas de Enumeração de JavaScript (Instaladas via `go install`)
-*   `subjs`: Encontra arquivos JavaScript em uma lista de URLs
-*   `anti-burl`: FIltra perante resposta 200 HTTP.
+#### JavaScript Enumeration Tools (Installed via `go install`)
+*   `subjs`: Finds JavaScript files in a list of URLs;
+*   `anti-burl`: Filters based on HTTP 200 responses.
 
-#### Ferramentas de Enumeração de Diretórios e Fuzzing (Instaladas via `go install`)
-*   `gobuster`: Ferramenta para realizar brute-force em diretórios e arquivos;
-*   `ffuf`: Ferramenta para fuzzing web (encontrar arquivos e diretórios).
+#### Directory Enumeration and Fuzzing Tools (Installed via `go install`)
+*   `gobuster`: Tool for brute-forcing directories and files;
+*   `ffuf`: Web fuzzing tool (finding files and directories).
 
-#### Ferramenta de Automação de Enumeração (Instalada via `go install`)
-*   `nuclei`: Framework para executar verificações automatizadas de vulnerabilidades.
+#### Enumeration Automation Tool (Installed via `go install`)
+*   `nuclei`: Framework for performing automated vulnerability checks.
 
-#### Ferramentas Adicionais (Instaladas via `go install`)
-*   `Goop`: Busca de CVEs;
-*   `meg`: Extrai informações e dados de textos;
-*   `freq`: identifica frequências de strings e caracteres;
-*    `sdlookup`: Extrai informações de subdomínios;
-*   `sigurlfind3r`: Extrai URLs de arquivos e texto;
-*   `airixss`: Identifica parâmetros XSS vulneráveis;
-*   `nilo`: FIltra perante resposta 200 HTTP;
-* Atualização automática de templates (ex.: Nuclei);
+#### Additional Tools (Installed via `go install`)
+*   `Goop`: CVE search tool;
+*   `meg`: Extracts information and data from texts;
+*   `freq`: Identifies string and character frequencies;
+*   `sdlookup`: Extracts subdomain information;
+*   `sigurlfind3r`: Extracts URLs from files and text;
+*   `airixss`: Identifies vulnerable XSS parameters;
+*   `nilo`: Filters based on HTTP 200 responses;
+*   Automatic template updates (e.g., Nuclei).
 
-### Como usar?
-
-<br>
-
-> ⚠️ **Atenção:** Certifique-se do usuário ter permissões administrativas no sistema.
+### How to Use?
 
 <br>
 
- Clone este repositório:
+> ⚠️ **Warning:** Ensure the user has administrative permissions on the system.
+
+<br>
+
+ Clone this repository:
 ```bash
 git clone https://github.com/brennocm/basic-enum-tools.git
 ```
 
-Navegue para o diretório do projeto:
+
+Navigate to the project directory:
 ```bash
 cd basic-enum-tools
 ```
-
-Execute o script a partir do utilitário `bash` e com permissões administrativas:
+Run the script using the `bash` utility with administrative permissions:
 ```bash
 sudo bash basic-enum-tools.sh
 ```
 
-#### OU 
+#### OR 
 
-Torne o script executável:
+Make the script executable:
 ```bash
 chmod +x basic-enum-tools.sh
 ```
 
-Execute o script com permissões administrativas:
+Run the script with administrative permissions:
 ```bash
 sudo ./basic-enum-tools.sh
 ```
