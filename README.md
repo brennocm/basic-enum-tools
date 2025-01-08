@@ -11,7 +11,7 @@ Script voltado para automatizar a instalação e configuração de ferramentas d
 - Instalação do Python e Golang;
 - Instalação e configuração das seguintes ferramentas:
 
-#### Utilitários Gerais (Instalados via `apt`)
+##### Utilitários Gerais (Instalados via `apt`)
 *   `unzip`: Para descompactar arquivos ZIP.
 *   `tar`: Para manipular arquivos TAR (compactação e descompactação).
 *   `bzip2`: Para manipular arquivos BZIP2 (compactação e descompactação).
@@ -89,7 +89,7 @@ Execute o script a partir do utilitário `bash` e com permissões administrativa
 sudo bash basic-enum-tools.sh
 ```
 
-### OU 
+#### OU 
 
 Torne o script executável:
 ```bash
