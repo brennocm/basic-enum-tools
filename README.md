@@ -70,7 +70,7 @@ Script voltado para automatizar a instalação e configuração de ferramentas d
 
 <br>
 
-> ⚠️ **Atenção:** Certifique-se do usuário ter permissões administrátivas no sistema.
+> ⚠️ **Atenção:** Certifique-se do usuário ter permissões administrativas no sistema.
 
 <br>
 
