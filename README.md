@@ -40,7 +40,7 @@ Script designed to automate the installation and configuration of tools for subd
 *   `waybackurls`: Fetches URLs from the Wayback Machine for a domain;
 *   `gau`: Fetches URLs from various sources of web indexers.
 
-#### Entry Point Enumeration Tool (Installed via `go install`)
+#### Endpoint Enumeration Tool (Installed via `go install`)
 *   `gf`: Generates custom patterns for `grep` and other filters.
 
 #### JavaScript Enumeration Tools (Installed via `go install`)
