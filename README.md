@@ -67,7 +67,7 @@ Script designed to automate the installation and configuration of tools for subd
 ### How to Use?
 
 <div align="center">
-    <img src="images/banner.png" alt="banner" width="70%">
+    <img src="images/banner.png" alt="banner" width="80%">
 </div>
 
 <br><br>
