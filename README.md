@@ -1,6 +1,6 @@
 <div align="center">
     <img src="images/reconnaissance .png" alt="reconnaissance" width="220px">
-    <h2 align="center"> Basic Enum Tools</h2>
+    <h2 align="center"> Basic Enum Tools - Automating enumeration/reconnaissance environment setup</h2>
 </div>
 
 Script designed to automate the installation and configuration of tools for subdomain enumeration, endpoint resolution, URL crawling, fuzzing, and security testing automation.
