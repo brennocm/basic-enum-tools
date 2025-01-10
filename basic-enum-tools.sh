@@ -94,49 +94,43 @@ check_go_version() {
     fi
 }
 
-# Function to install Golang
 install_golang() {
-    info_message "Downloading and installing Golang..."
-    
-    # Download the latest stable version of Go
-    wget -q https://go.dev/dl/go1.22.0.linux-amd64.tar.gz -O /tmp/go.linux-amd64.tar.gz
-    if [[ $? -ne 0 ]]; then
-        error_message "Failed to download Golang."
-        return 1
-    fi
+  info_message "Downloading and installing Golang..."
 
-    # Remove any previous Go installation
-    sudo rm -rf /usr/local/go
+  # Download Go
+  wget https://go.dev/dl/go1.23.4.linux-amd64.tar.gz
+  if [[ $? -ne 0 ]]; then
+    error_message "Failed to download Golang."
+    return 1
+  fi
 
-    # Extract Go to /usr/local
-    sudo tar -C /usr/local -xzf /tmp/go.linux-amd64.tar.gz
-    if [[ $? -ne 0 ]]; then
-        error_message "Failed to extract Golang tarball."
-        return 1
-    fi
+  # Remove existing installation and extract
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz
+  if [[ $? -ne 0 ]]; then
+    error_message "Failed to extract Golang."
+    return 1
+  fi
 
-    # Set up environment variables
-    echo 'export GOPATH=$HOME/go' | sudo tee /etc/profile.d/go.sh
-    echo 'export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin' | sudo tee -a /etc/profile.d/go.sh
-    sudo chmod +x /etc/profile.d/go.sh
+  # Add to PATH in .bashrc if not already present
+  if ! grep -q "export PATH=\$PATH:/usr/local/go/bin" /root/.bashrc; then
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> /root/.bashrc
+  fi
 
-    # Source the new environment variables
-    source /etc/profile.d/go.sh
-    
-    # Create go directory structure
-    mkdir -p $HOME/go/{bin,src,pkg}
+  # Apply PATH changes
+  export PATH=$PATH:/usr/local/go/bin
+  source /root/.bashrc
 
-    # Verify installation
-    if ! check_go_version; then
-        error_message "Golang installation verification failed."
-        return 1
-    fi
+  # Clean up
+  rm -f go1.23.4.linux-amd64.tar.gz
 
-    # Clean up
-    rm -f /tmp/go.linux-amd64.tar.gz
-    
+  # Verify installation
+  if go version; then
     success_message "Golang installed successfully!"
     return 0
+  else
+    error_message "Golang installation verification failed."
+    return 1
+  fi
 }
 
 # Install Golang section
@@ -169,6 +163,7 @@ UTILITIES=(
     "python3-venv"
     "jq"
 )
+
 check_and_install_tool "unzip" "unzip" "sudo apt install -y unzip"
 check_and_install_tool "tar" "tar" "sudo apt install -y tar"
 check_and_install_tool "bzip2" "bzip2" "sudo apt install -y bzip2"
@@ -178,28 +173,8 @@ check_and_install_tool "git" "git" "sudo apt install -y git"
 check_and_install_tool "net-tools" "netstat" "sudo apt install -y net-tools"
 check_and_install_tool "python3" "python3" "sudo apt install -y python3"
 check_and_install_tool "python3-pip" "pip3" "sudo apt install -y python3-pip"
-check_and_install_tool "python3-venv" "python3-venv" "sudo apt install -y python3-venv"
+check_and_install_tool "python3-venv" "python3-venv" "sudo apt install -y python3-venv -y"
 check_and_install_tool "jq" "jq" "sudo apt install -y jq"
-
-# Verify Python installation
-separator "Python Verification"
-info_message "Verifying Python installation..."
-if command -v python3 &>/dev/null; then
-    success_message "Python installed successfully! Version: $(python3 --version)"
-else
-    error_message "Python was not installed correctly."
-    exit 1
-fi
-
-# Verify jq installation
-separator "jq Verification"
-info_message "Verifying jq installation..."
-if command -v jq &>/dev/null; then
-    success_message "jq installed successfully! Version: $(jq --version)"
-else
-    error_message "jq was not installed correctly."
-    exit 1
-fi
 
 # Install subdomain enumeration tools
 separator "Subdomain Enumeration Tools"
@@ -228,13 +203,29 @@ separator "Crawler Tools"
 install_tool "waybackurls" "go install github.com/tomnomnom/waybackurls@latest && sudo mv /root/go/bin/waybackurls /usr/bin"
 install_tool "gau" "go install github.com/lc/gau/v2/cmd/gau@latest && sudo mv /root/go/bin/gau /usr/bin"
 
-# Configure gau
-info_message "Creating configuration for gau..."
-cat <<EOL > /root/.gau.toml
-# Configuration file for gau
-# Add custom options here
-EOL
-success_message "Configuration file for gau created."
+# Function to configure gau
+configure_gau() {
+    info_message "Creating configuration for gau..."
+    
+    # URL do conteúdo do .gau.toml no repositório
+    local gau_config_url="https://raw.githubusercontent.com/lc/gau/master/.gau.toml"
+    
+    # Baixa o conteúdo e salva em /root/.gau.toml
+    if curl -s -o /root/.gau.toml "$gau_config_url"; then
+        success_message "Configuration file for gau created successfully at /root/.gau.toml."
+    else
+        error_message "Failed to download and create configuration file for gau."
+        return 1
+    fi
+}
+
+# configure gau
+if configure_gau; then
+    success_message "Gau configuration completed successfully."
+else
+    error_message "Gau configuration failed."
+    exit 1
+fi
 
 # Install endpoint enumeration tools
 separator "Endpoint Enumeration Tools"
@@ -297,16 +288,16 @@ TOOLS=(
     "nilo:nilo"
 )
 
-# Verify each tool
-for TOOL in "${TOOLS[@]}"; do
-    IFS=":" read -r name command <<< "$TOOL"
-    check_tool "$name" "$command"
-done
-
 # Verify each utility
 separator "Verifying Utilities Installation"
 for UTIL in "${UTILITIES[@]}"; do
    check_tool "$UTIL" "$UTIL"
+done
+
+# Verify each tool
+for TOOL in "${TOOLS[@]}"; do
+    IFS=":" read -r name command <<< "$TOOL"
+    check_tool "$name" "$command"
 done
 
 # Finalization

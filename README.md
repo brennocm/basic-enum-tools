@@ -8,33 +8,36 @@ Script designed to automate the installation and configuration of tools for subd
 ### Features
 
 - System update and installation of essential dependencies;
-- Installation of Python and Golang;
-- Installation and configuration of tools.
+- Installation and configurations of programming languages (Python & Golang) and  tools.
+
+##### Programming languages 
+*   `python`: A high-level programming language, interpreted, scripting, imperative, object-oriented, functional, dynamically and strongly typed;
+*   `golang`: A compiled language focused on productivity and concurrent programming.
 
 ##### General Utilities (Installed via `apt`)
 *   `unzip`: ZIP file extraction;
 *   `tar`: TAR file manipulation (compression and extraction);
 *   `bzip2`: BZIP2 file manipulation (compression and extraction);
-*   `vim`: Advanced text editor;
-*   `curl`: Data transfer tool via URL;
-*   `git`: Distributed version control system;
-*   `net-tools`: Network tools suite (includes `netstat`);
-*   `python3-pip`: Package manager for Python3;
-*   `python3-venv`: Tool to create Python virtual environments;
-*   `jq`: Command-line JSON processor.
+*   `vim`: An advanced text editor;
+*   `curl`: A Data transfer tool via URL;
+*   `git`: a Distributed version control system;
+*   `net-tools`: A suite of network tools (includes `netstat`);
+*   `python3-pip`: A package manager for Python3;
+*   `python3-venv`: A tool to create Python virtual environments;
+*   `jq`: A command-line JSON processor.
 
 #### Subdomain Enumeration Tools (Installed via `go install`)
 *   `assetfinder`: Finds subdomains related to a target domain;
 *   `subfinder`: Enumerates subdomains, focused on different data sources;
 *   `anew`: Filters and maintains text lists without duplicates;
-*   `amass`: Tool for open-source intelligence gathering, including subdomains;
-*   `findomain`: Tool to find subdomains.
+*   `amass`: A tool for open-source intelligence gathering, including subdomains;
+*   `findomain`: A tool to find subdomains.
 
 #### Subdomain Resolution Tools (Installed via `go install`)
-*   `httpx`: Multi-purpose tool for probing web servers and identifying status codes;
+*   `httpx`: A multi-purpose tool for probing web servers and identifying status codes;
 *   `httprobe`: Checks if a list of hosts responds to the desired HTTP(S);
-*   `gowitness`: Tool for taking screenshots of websites and storing them;
-*   `dnsx`: Flexible tool for performing DNS queries.
+*   `gowitness`: A tool for taking screenshots of websites and storing them;
+*   `dnsx`: A flexible tool for performing DNS queries.
 
 #### Crawler Tools (Installed via `go install`)
 *   `waybackurls`: Fetches URLs from the Wayback Machine for a domain;
@@ -48,14 +51,14 @@ Script designed to automate the installation and configuration of tools for subd
 *   `anti-burl`: Filters based on HTTP 200 responses.
 
 #### Directory Enumeration and Fuzzing Tools (Installed via `go install`)
-*   `gobuster`: Tool for brute-forcing directories and files;
-*   `ffuf`: Web fuzzing tool (finding files and directories).
+*   `gobuster`: A tool for brute-forcing directories and files;
+*   `ffuf`: A web fuzzing tool (finding files and directories).
 
 #### Enumeration Automation Tool (Installed via `go install`)
-*   `nuclei`: Framework for performing automated vulnerability checks.
+*   `nuclei`: A framework for performing automated vulnerability checks.
 
 #### Additional Tools (Installed via `go install`)
-*   `Goop`: CVE search tool;
+*   `Goop`: A CVE search tool;
 *   `meg`: Extracts information and data from texts;
 *   `freq`: Identifies string and character frequencies;
 *   `sdlookup`: Extracts subdomain information;
