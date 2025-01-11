@@ -300,6 +300,8 @@ for TOOL in "${TOOLS[@]}"; do
     check_tool "$name" "$command"
 done
 
+source /root/.bashrc
+
 # Finalization
 separator "Installation and Validation Complete"
 success_message "All tools and utilities installed and validated successfully! 🎉"
