@@ -54,10 +54,11 @@ Script designed to automate the installation and configuration of tools for subd
 *   `gobuster`: A tool for brute-forcing directories and files;
 *   `ffuf`: A web fuzzing tool (finding files and directories).
 
-#### Enumeration Automation Tool (Installed via `go install`)
+#### Automation Tool (Installed via `go install`)
 *   `nuclei`: A framework for performing automated vulnerability checks.
 
 #### Additional Tools (Installed via `go install`)
+*   `nmap`: A network scanner;
 *   `Goop`: A CVE search tool;
 *   `meg`: Extracts information and data from texts;
 *   `freq`: Identifies string and character frequencies;

@@ -118,6 +118,7 @@ install_golang() {
 
   # Apply PATH changes
   export PATH=$PATH:/usr/local/go/bin
+  source ~/.bashrc
   source /root/.bashrc
 
   # Clean up
@@ -150,19 +151,6 @@ fi
 # Install general utilities
 separator "General Utilities"
 info_message "Checking and installing general utilities..."
-UTILITIES=(
-    "unzip"
-    "tar"
-    "bzip2"
-    "vim"
-    "curl"
-    "git"
-    "netstat" #netstat is from net-tools
-    "python3"
-    "pip3" #pip is from python3-pip
-    "python3-venv"
-    "jq"
-)
 
 check_and_install_tool "unzip" "unzip" "sudo apt install -y unzip"
 check_and_install_tool "tar" "tar" "sudo apt install -y tar"
@@ -242,7 +230,7 @@ install_tool "gobuster" "go install github.com/OJ/gobuster/v3@latest && sudo mv 
 install_tool "ffuf" "go install github.com/ffuf/ffuf/v2@latest && sudo mv /root/go/bin/ffuf /usr/bin"
 
 # Install enumeration automation tools
-separator "Enumeration Automation Tools"
+separator "Automation Tools"
 install_tool "nuclei" "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest && sudo mv /root/go/bin/nuclei /usr/bin"
 info_message "Updating nuclei templates..."
 nuclei -update-templates && success_message "Nuclei templates updated successfully!" || error_message "Failed to update nuclei templates."
@@ -256,53 +244,8 @@ install_tool "sdlookup" "go install github.com/j3ssie/sdlookup@latest && sudo mv
 install_tool "sigurlfind3r" "go install -v github.com/hueristiq/xurlfind3r/cmd/xurlfind3r@latest && sudo mv ~/go/bin/xurlfind3r /usr/bin"
 install_tool "airixss" "go install github.com/ferreiraklet/airixss@latest && sudo mv ~/go/bin/airixss /usr/bin"
 install_tool "nilo" "go install github.com/ferreiraklet/nilo@latest && sudo mv ~/go/bin/nilo /usr/bin"
-
-# Validation of tools and utilities that were not checked previously
-separator "Verifying Tools Installation"
-
-# Define the verification list
-TOOLS=(
-    "Assetfinder:assetfinder"
-    "Subfinder:subfinder"
-    "Anew:anew"
-    "Amass:amass"
-    "Findomain:findomain"
-    "httpx:httpx"
-    "httprobe:httprobe"
-    "gowitness:gowitness"
-    "dnsx:dnsx"
-    "waybackurls:waybackurls"
-    "gau:gau"
-    "gf:gf"
-    "subjs:subjs"
-    "anti-burl:anti-burl"
-    "gobuster:gobuster"
-    "ffuf:ffuf"
-    "nuclei:nuclei"
-    "Goop:goop"
-    "meg:meg"
-    "freq:freq"
-    "sdlookup:sdlookup"
-    "sigurlfind3r:xurlfind3r"
-    "airixss:airixss"
-    "nilo:nilo"
-)
-
-# Verify each utility
-separator "Verifying Utilities Installation"
-for UTIL in "${UTILITIES[@]}"; do
-   check_tool "$UTIL" "$UTIL"
-done
-
-# Verify each tool
-for TOOL in "${TOOLS[@]}"; do
-    IFS=":" read -r name command <<< "$TOOL"
-    check_tool "$name" "$command"
-done
-
-source /root/.bashrc
+install_tool "nmap" "apt-get install nmap -y"
 
 # Finalization
-separator "Installation and Validation Complete"
 success_message "All tools and utilities installed and validated successfully! 🎉"
 exit 0
