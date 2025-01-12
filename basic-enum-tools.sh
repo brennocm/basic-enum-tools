@@ -246,6 +246,9 @@ install_tool "airixss" "go install github.com/ferreiraklet/airixss@latest && sud
 install_tool "nilo" "go install github.com/ferreiraklet/nilo@latest && sudo mv ~/go/bin/nilo /usr/bin"
 install_tool "nmap" "apt-get install nmap -y"
 
+rm LICENSE
+rm 
 # Finalization
+separator "Final Section"
 success_message "All tools and utilities installed and validated successfully! 🎉"
 exit 0

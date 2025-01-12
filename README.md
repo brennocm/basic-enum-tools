@@ -24,7 +24,8 @@ Script designed to automate the installation and configuration of tools for subd
 *   `net-tools`: A suite of network tools (includes `netstat`);
 *   `python3-pip`: A package manager for Python3;
 *   `python3-venv`: A tool to create Python virtual environments;
-*   `jq`: A command-line JSON processor.
+*   `jq`: A command-line JSON processor;
+*   `nmap`: A network scanner;
 
 #### Subdomain Enumeration Tools (Installed via `go install`)
 *   `assetfinder`: Finds subdomains related to a target domain;
@@ -58,7 +59,6 @@ Script designed to automate the installation and configuration of tools for subd
 *   `nuclei`: A framework for performing automated vulnerability checks.
 
 #### Additional Tools (Installed via `go install`)
-*   `nmap`: A network scanner;
 *   `Goop`: A CVE search tool;
 *   `meg`: Extracts information and data from texts;
 *   `freq`: Identifies string and character frequencies;
