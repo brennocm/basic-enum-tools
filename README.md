@@ -106,3 +106,6 @@ Run the script with administrative permissions:
 ```bash
 sudo ./basic-enum-tools.sh
 ```
+### Usage process
+
+[Video usage process](https://youtu.be/aKA3esUjmsk)
